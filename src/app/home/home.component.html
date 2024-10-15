@@ -1,0 +1,254 @@
+<div id="mainCarousel" class="carousel slide main-slider slider" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+        <li data-target="#mainCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#mainCarousel" data-slide-to="1"></li>
+        <li data-target="#mainCarousel" data-slide-to="2"></li>
+    </ol>
+    <!-- Slides -->
+    <div class="carousel-inner">
+        <div class="carousel-item active" style="background-image:url('{{product4.images[0]}}')">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-12 offset-lg-6 offset-md-6">
+                        <div class="slider-caption">
+                            <span class="lead text-white">Winter Collection Sale</span>
+                            <h1 class="mt-2 mb-5 text-white"><span class="text-color">70% off</span> to everything</h1>
+                            <a routerLink="shop" class="btn btn-main">Shop Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="carousel-item" style="background-image:url('{{product5.images[1]}}')">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-12 offset-lg-6 offset-md-6">
+                        <div class="slider-caption">
+                            <span class="lead text-white">up to 20% off</span>
+                            <h1 class="mt-2 mb-5 text-white"><span class="text-color">Classic</span> Style</h1>
+                            <a routerLink="shop" class="btn btn-main">Shop Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="carousel-item" style="background-image:url('{{product6.images[0]}}')">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-12 offset-lg-6 offset-md-6">
+                        <div class="slider-caption">
+                            <span class="lead text-white">Out Now for $97 ONLY!</span>
+                            <h1 class="mt-2 mb-5 text-white"><span class="text-color">Sleek </span>Modern Laptop</h1>
+                            <a routerLink="shop" class="btn btn-main">Shop Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Controls -->
+    <a class="carousel-control-prev" href="#mainCarousel" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#mainCarousel" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+<section class="category section pt-3 pb-0">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-sm-12 col-md-6">
+                <div class="cat-item mb-4 mb-lg-0">
+                    <img [src]="product1.images[0]"
+                        onerror="this.onerror=null;this.src='https://placehold.co/1000x1000.png';"
+                        alt="{{product1.title}}" class="img-fluid" />
+                    <div class="item-info">
+                        <p class="price-tag mb-0">${{ product1.price }}</p>
+                        <h4 class="mb-4 text-white">{{ product1.title }}
+                        </h4>
+                        <a routerLink="shop" class="read-more">Shop now</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-12 col-md-6">
+                <div class="cat-item mb-4 mb-lg-0">
+                    <img [src]="product2.images[0]"
+                        onerror="this.onerror=null;this.src='https://placehold.co/1000x1000.png';"
+                        alt="{{product2.title}}" class="img-fluid" />
+                    <div class="item-info">
+                        <p class="price-tag mb-0">${{ product2.price }}</p>
+                        <h4 class="mb-4 text-white">{{ product2.title }}</h4>
+                        <a routerLink="shop" class="read-more">Shop now</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-12 col-md-6">
+                <div class="cat-item">
+                    <img [src]="product3.images[0]"
+                        onerror="this.onerror=null;this.src='https://placehold.co/1000x1000.png';"
+                        alt="{{product3.title}}" class="img-fluid" />
+                    <div class="item-info">
+                        <p class="price-tag mb-0">${{ product3.price }}</p>
+                        <h4 class="mb-4 text-white">{{ product3.title }}
+                        </h4>
+                        <a routerLink="shop" class="read-more">Shop now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="section products-main">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="title text-center">
+                    <h2>New arrivals</h2>
+                    <p>The best Online sales to shop these weekend</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div *ngFor="let product of products" class="col-lg-3 col-12 col-md-6 col-sm-6 mb-5">
+                <div class="product">
+                    <div class="product-wrap">
+                        <a [routerLink]="['/product', product.id]">
+                            <img class="product-image img-fluid w-100 mb-3" [src]="product.images[0]"
+                                alt="{{ product.title }}"
+                                onerror="this.onerror=null;this.src='https://placehold.co/1000x1000.png';" />
+                        </a>
+                    </div>
+                    <span class="onsale">Sale</span>
+                    <div class="product-hover-overlay">
+                        <a href="#">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </a>
+                        <a href="#">
+                            <i class="fa-solid fa-heart"></i>
+                        </a>
+                    </div>
+                    <div class="product-info">
+                        <h2 class="product-title h5 mb-0">
+                            <a [routerLink]="['/product', product.id]">
+                                {{ product.title.length > 20 ? (product.title | slice:0:20) + '...' : product.title }}
+                            </a>
+                        </h2>
+                        <span class="price">
+                            ${{product.price}}
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="ads section">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-12 offset-lg-12">
+                <div class="ads-content">
+                    <span class="h5 deal">Deal of the day 50% Off</span>
+                    <h2 class="mt-3 text-white"><s>$88</s> - $44</h2>
+                    <p class="text-md mt-3 text-white">Sleek Wireless Headphone <br />& Inked Earbud Set</p>
+                    <div id="simple-timer" class="syotimer mb-5"></div>
+                    <a routerLink="product/19" class="btn btn-main">
+                        <i class="ti-bag mr-2"></i>Shop Now
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="section products-list">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-sm-12 col-md-12">
+                <img src="assets/images/adsv.jpg" alt="Product big thumb" class="img-fluid w-100">
+            </div>
+            <div class="col-lg-4 col-sm-6 col-md-6">
+                <div class="widget-featured-entries mt-5 mt-lg-0">
+                    <h4 class="mb-4 pb-3">Shoes</h4>
+                    <div *ngFor="let shoe of shoes | slice:0:5" class="media mb-3">
+                        <a class="featured-entry-thumb">
+                            <img [src]="shoe.images[0]" alt="{{ shoe.title }}"
+                                onerror="this.onerror=null;this.src='https://placehold.co/1000x1000.png';" width="64"
+                                class="img-fluid mr-3">
+                        </a>
+                        <div class="media-body">
+                            <h6 class="featured-entry-title mb-0">
+                                <a [routerLink]="['/product/', shoe.id]">{{ shoe.title }}</a>
+                            </h6>
+                            <p>${{ shoe.price }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-6 col-md-6">
+                <div class="widget-featured-entries mt-5 mt-lg-0">
+                    <h4 class="mb-4 pb-3">Electronics</h4>
+                    <div *ngFor="let electronic of electronics | slice:0:5" class="media mb-3">
+                        <a class="featured-entry-thumb">
+                            <img [src]="electronic.images[0]" alt="{{ electronic.title }}"
+                                onerror="this.onerror=null;this.src='https://placehold.co/1000x1000.png';" width="64"
+                                class="img-fluid mr-3">
+                        </a>
+                        <div class="media-body">
+                            <h6 class="featured-entry-title mb-0">
+                                <a [routerLink]="['/product/', electronic.id]">{{ electronic.title }}</a>
+                            </h6>
+                            <p>${{ electronic.price }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="features border-top">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-sm-6 col-md-6">
+                <div class="feature-block">
+                    <i class="tf-ion-android-bicycle"></i>
+                    <div class="content">
+                        <h5>Free Shipping</h5>
+                        <p>On all order over $39.00</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6 col-md-6">
+                <div class="feature-block">
+                    <i class="tf-wallet"></i>
+                    <div class="content">
+                        <h5>30 Days Return</h5>
+                        <p>Money back Guarantee</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6 col-md-6">
+                <div class="feature-block">
+                    <i class="tf-key"></i>
+                    <div class="content">
+                        <h5>Secure Checkout</h5>
+                        <p>100% Protected by paypal</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6 col-md-6">
+                <div class="feature-block">
+                    <i class="tf-clock"></i>
+                    <div class="content">
+                        <h5>24/7 Support</h5>
+                        <p>All time customer support
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

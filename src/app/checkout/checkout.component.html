@@ -1,0 +1,88 @@
+<section class="page-header">
+    <div class="overly"></div>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+                <div class="content text-center">
+                    <h1 class="mb-3">Checkout</h1>
+                    <p>Hath after appear tree great fruitful green dominion moveth sixth abundantly image that midst of
+                        god day multiply you’ll which</p>
+
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb bg-transparent justify-content-center">
+                            <li class="breadcrumb-item">
+                                <a routerLink="">Home</a>
+                            </li>
+                            <li class="breadcrumb-item active" aria-current="page">Checkout</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="page-wrapper">
+    <div class="checkout shopping">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="billing-details">
+                        <h4 class="mb-4">Billing Details</h4>
+                        <form [formGroup]="checkoutForm" class="checkout-form">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="form-group mb-4">
+                                        <label for="first_name">First Name</label>
+                                        <input type="text" class="form-control" id="first_name"
+                                            formControlName="firstName" required>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group mb-4">
+                                        <label for="last_name">Last Name</label>
+                                        <input type="text" class="form-control" id="last_name"
+                                            formControlName="lastName" required>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="form-group mb-4">
+                                        <label for="street">Street Address</label>
+                                        <input type="text" class="form-control" id="street" formControlName="street" required>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="form-group mb-4">
+                                        <label for="city">Town / City</label>
+                                        <input type="text" class="form-control" id="city" formControlName="city" required>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="form-group mb-4">
+                                        <label for="postcode">Postcode / ZIP</label>
+                                        <input type="text" class="form-control" id="postcode"
+                                            formControlName="postcode" required>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="form-group mb-4">
+                                        <label for="phone">Phone</label>
+                                        <input type="text" class="form-control" id="phone" formControlName="phone" required>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="form-group mb-4">
+                                        <label for="email">Email address</label>
+                                        <input type="text" class="form-control" id="email" formControlName="email" required>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <button (click)="placeOrder()" class="btn btn-main btn-small">Place Order</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

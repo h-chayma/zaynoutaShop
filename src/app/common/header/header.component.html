@@ -1,0 +1,67 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-white w-100 navigation" id="navbar">
+    <div class="container">
+        <a class="navbar-brand font-weight-bold" routerLink="">ZAYNOUTA LTD</a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-navbar"
+            aria-controls="main-navbar" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="main-navbar">
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item">
+                    <a class="nav-link active" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"
+                        routerLink="">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="about" routerLinkActive="active">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="shop" routerLinkActive="active">Shop</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="contact" routerLinkActive="active">Contact</a>
+                </li>
+            </ul>
+        </div>
+        <!-- Navbar-collapse -->
+        <ul class="top-menu list-inline mb-0 d-none d-lg-block" id="top-menu">
+            <li class="list-inline-item">
+                <a class="search_toggle" id="search-icon" (click)="openSearchModal()">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </a>
+            </li>
+            <li class="list-inline-item">
+                <a routerLink="cart">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span *ngIf="cartItemCount > 0" class="badge badge-pill badge-primary">{{ cartItemCount }}</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<!-- Search Modal -->
+<div class="modal fade" id="searchModal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="searchModalLabel">Search</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"
+                    (click)="closeSearchModal()">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form (ngSubmit)="onSearch()" #searchForm="ngForm">
+                    <div class="form-group">
+                        <input type="text" [(ngModel)]="product" placeholder="Search..." name="search" required
+                            class="form-control">
+                    </div>
+                    <button type="submit" class="btn btn-main btn-small">Search</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

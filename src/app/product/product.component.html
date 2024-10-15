@@ -1,0 +1,72 @@
+<section class="page-header">
+    <div class="overly"></div>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+                <div class="content text-center">
+                    <h1 class="mb-3">Product Single</h1>
+                    <p>Discover the exceptional quality and unique designs at Zaynouta Ltd. Our products are crafted
+                        with care, ensuring you find exactly what you need to elevate your style and enhance your
+                        lifestyle.</p>
+
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb bg-transparent justify-content-center">
+                            <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Product Single</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="single-product">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-5">
+                <div class="single-product-slider">
+                    <div class="carousel slide" data-ride="carousel" id="single-product-slider">
+                        <div class="carousel-inner">
+                            <div *ngFor="let image of product.images; let i = index" class="carousel-item"
+                                [class.active]="i === 0">
+                                <img [src]="image"
+                                onerror="this.onerror=null;this.src='https://placehold.co/1000x1000.png';"
+                                alt="{{product.title}}" class="img-fluid">
+                            </div>
+                        </div>
+                        <ol class="carousel-indicators">
+                            <li *ngFor="let image of product.images; let i = index"
+                                [attr.data-target]="'#single-product-slider'" [attr.data-slide-to]="i"
+                                [class.active]="i === 0">
+                                <img [src]="image" alt="" class="img-fluid">
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-7">
+                <div class="single-product-details mt-5 mt-lg-0">
+                    <h2>{{product.title}}</h2>
+                    <div class="sku_wrapper mb-4">
+                        SKU:
+                        <span class="text-muted">{{product.id}}</span>
+                    </div>
+                    <hr>
+                    <h3 class="product-price">${{product.price}}</h3>
+                    <p class="product-description">{{product.description}}</p>
+                    <button (click)="addToCart(product)" class="btn btn-main btn-small">Add to cart</button>
+                    <div class="products-meta mt-4">
+                        <div class="product-category d-flex align-items-center">
+                            <span class="font-weight-bold text-capitalize product-meta-title">Categories :</span>
+                            <a [routerLink]="['/category/', product.category.id]">{{product.category.name}}</a>
+                        </div>
+                        <div class="d-flex align-items-center mt-3">
+                            <span class="font-weight-bold text-capitalize product-meta-title">Created At :</span>
+                            {{ product.creationAt | date: 'longDate' }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
