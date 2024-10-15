@@ -42,7 +42,11 @@
                         </div>
                     </div>
                 </div>
-                <div class="row">
+                <div *ngIf="isLoading" class="d-flex justify-content-center">
+                    <div class="spinner-border text-danger m-5" role="status" style="width: 3rem; height: 3rem;">
+                    </div>
+                </div>
+                <div class="row" *ngIf="!isLoading">
                     <div *ngFor="let product of products" class="col-lg-4 col-12 col-md-6 col-sm-6 mb-5">
                         <div class="product">
                             <div class="product-wrap">
@@ -53,14 +57,6 @@
                                 </a>
                             </div>
                             <span class="onsale">Sale</span>
-                            <div class="product-hover-overlay">
-                                <a (click)="addToCart(product)">
-                                    <i class="fa-solid fa-cart-shopping"></i>
-                                </a>
-                                <a href="#">
-                                    <i class="fa-solid fa-heart"></i>
-                                </a>
-                            </div>
                             <div class="product-info">
                                 <h2 class="product-title h5 mb-0">
                                     <a [routerLink]="['/product', product.id]">

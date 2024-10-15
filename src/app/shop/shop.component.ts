@@ -13,13 +13,12 @@ export class ShopComponent implements OnInit {
   categories: any[] = [];
   validCategoryNames: string[] = ['Clothes', 'Electronics', 'Shoes', 'Furniture', 'Miscellaneous'];
   product: string = '';
-
   currentPage: number = 1;
   productsPerPage: number = 12;
+  isLoading: boolean = true;
 
   constructor(
     private productService: ProductService,
-    private cartService: CartService,
     private route: ActivatedRoute
   ) { }
 
@@ -44,22 +43,27 @@ export class ShopComponent implements OnInit {
 
   search() {
     if (this.product) {
+      this.isLoading = true;
       this.productService.getProductByTitle(this.product).subscribe(
         (data) => {
           this.products = data;
+          this.isLoading = false;
         },
         (error) => {
           console.error('Error fetching recipes:', error);
+          this.isLoading = false;
         }
       );
     }
   }
 
   getProducts(page: number) {
+    this.isLoading = true;
     const offset = (page - 1) * this.productsPerPage;
     this.productService.getProductsByPage(offset, this.productsPerPage).subscribe(data => {
       this.products = data;
-      this.currentPage = page; 
+      this.currentPage = page;
+      this.isLoading = false;
     });
   }
 
@@ -70,26 +74,25 @@ export class ShopComponent implements OnInit {
   }
 
   getProductsByCategory(categoryId: number) {
+    this.isLoading = true;
     this.productService.getProductByCategoryId(categoryId).subscribe((data) => {
       this.products = data;
+      this.isLoading = false;
     });
   }
 
   getCategories() {
+    this.isLoading = true;
     this.productService.getProductCategories().subscribe((data) => {
       this.categories = data.filter(category =>
         this.validCategoryNames.includes(category.name)
       );
+      this.isLoading = false;
     });
-  }
-
-  addToCart(product: any) {
-    this.cartService.addToCart(product);
   }
 
   onSortChange(event: Event) {
     const value = (event.target as HTMLSelectElement).value;
-
     if (value === 'asc') {
       this.products.sort((a, b) => a.price - b.price);
     } else if (value === 'desc') {
